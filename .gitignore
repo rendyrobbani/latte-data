@@ -1,0 +1,6 @@
+/.*/
+/src/test
+/target/
+!.gitignore
+!.mvn
+.DS_Store
