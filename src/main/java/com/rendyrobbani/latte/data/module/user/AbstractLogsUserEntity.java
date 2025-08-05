@@ -3,6 +3,7 @@ package com.rendyrobbani.latte.data.module.user;
 import com.rendyrobbani.espresso.identify.Gender;
 import com.rendyrobbani.espresso.identify.NIP;
 import com.rendyrobbani.espresso.identify.PangkatASN;
+import com.rendyrobbani.latte.data.converter.GenderConverter;
 import com.rendyrobbani.latte.data.converter.NIPConverter;
 import com.rendyrobbani.latte.data.converter.PangkatASNConverter;
 import com.rendyrobbani.latte.data.module.AbstractLoggableEntity;
@@ -43,6 +44,7 @@ public abstract class AbstractLogsUserEntity extends AbstractLoggableEntity<Abst
 	@Column(name = "start_date")
 	protected LocalDate startDate;
 
+	@Convert(converter = GenderConverter.class)
 	@Column(name = "gender")
 	protected Gender gender;
 
