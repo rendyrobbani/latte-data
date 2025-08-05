@@ -1,4 +1,4 @@
-package com.rendyrobbani.latte.data.entity.user;
+package com.rendyrobbani.latte.data.module.user;
 
 import com.rendyrobbani.espresso.identify.Gender;
 import com.rendyrobbani.espresso.identify.NIP;
@@ -6,21 +6,22 @@ import com.rendyrobbani.espresso.identify.PangkatASN;
 import com.rendyrobbani.latte.core.data.domain.user.DataUser;
 import com.rendyrobbani.latte.data.converter.NIPConverter;
 import com.rendyrobbani.latte.data.converter.PangkatASNConverter;
-import com.rendyrobbani.latte.data.entity.AbstractLockableEntity;
+import com.rendyrobbani.latte.data.module.AbstractLockableEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Getter
 @MappedSuperclass
-@SuppressWarnings("DefaultAnnotationParam")
-public abstract class AbstractDataUserEntity<DataUserEntity, TargetEntity> extends AbstractLockableEntity<DataUserEntity, TargetEntity> implements DataUser {
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public abstract class AbstractDataUserEntity extends AbstractLockableEntity implements DataUser {
 
 	@Id
-	@Column(name = "id", nullable = false, length = 18)
+	@Column(name = "id")
 	protected String id;
 
 	@Getter(AccessLevel.NONE)
@@ -29,41 +30,41 @@ public abstract class AbstractDataUserEntity<DataUserEntity, TargetEntity> exten
 	protected NIP nip;
 
 	@Convert(converter = PangkatASNConverter.class)
-	@Column(name = "pangkat", nullable = false)
+	@Column(name = "pangkat")
 	protected PangkatASN pangkat;
 
 	@Setter
-	@Column(name = "name", nullable = false, length = 255)
+	@Column(name = "name")
 	protected String name;
 
 	@Setter
-	@Column(name = "title_prefix", nullable = true, length = 255)
+	@Column(name = "title_prefix")
 	protected String titlePrefix;
 
 	@Setter
-	@Column(name = "title_suffix", nullable = true, length = 255)
+	@Column(name = "title_suffix")
 	protected String titleSuffix;
 
 	@Setter
-	@Column(name = "password", nullable = false, length = 255)
+	@Column(name = "password")
 	protected String password;
 
-	@Column(name = "birth_date", nullable = false)
+	@Column(name = "birth_date")
 	protected LocalDate birthDate;
 
-	@Column(name = "start_date", nullable = true)
+	@Column(name = "start_date")
 	protected LocalDate startDate;
 
-	@Column(name = "gender", nullable = false)
+	@Column(name = "gender")
 	protected Gender gender;
 
-	@Column(name = "number", nullable = false)
+	@Column(name = "number")
 	protected Integer number;
 
-	@Column(name = "is_pns", nullable = false)
+	@Column(name = "is_pns")
 	protected boolean isPNS;
 
-	@Column(name = "is_p3k", nullable = false)
+	@Column(name = "is_p3k")
 	protected boolean isP3K;
 
 	@Override
@@ -84,7 +85,7 @@ public abstract class AbstractDataUserEntity<DataUserEntity, TargetEntity> exten
 		this.startDate = startDate;
 	}
 
-	public AbstractDataUserEntity(NIP nip, DataUserEntity createdBy) {
+	protected AbstractDataUserEntity(NIP nip, NIP createdBy) {
 		super(createdBy);
 
 		if (nip == null) throw new IllegalArgumentException("NIP cannot be null");

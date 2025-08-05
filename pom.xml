@@ -40,7 +40,7 @@
 		<dependency>
 			<groupId>com.github.rendyrobbani</groupId>
 			<artifactId>latte-core</artifactId>
-			<version>62e48e9</version>
+			<version>53c5dd5</version>
 		</dependency>
 	</dependencies>
 

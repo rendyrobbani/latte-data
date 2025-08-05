@@ -1,6 +1,8 @@
-package com.rendyrobbani.latte.data.entity;
+package com.rendyrobbani.latte.data.module;
 
+import com.rendyrobbani.espresso.identify.NIP;
 import com.rendyrobbani.latte.core.data.domain.Readable;
+import com.rendyrobbani.latte.data.converter.NIPConverter;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -11,21 +13,21 @@ import java.time.LocalDateTime;
 @Getter
 @MappedSuperclass
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class AbstractReadableEntity<DataUserEntity> extends AbstractEntity implements Readable<DataUserEntity> {
+public abstract class AbstractReadableEntity extends AbstractEntity implements Readable {
 
 	@Column(name = "created_at")
 	protected LocalDateTime createdAt;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "created_by", referencedColumnName = "id")
-	protected DataUserEntity createdBy;
+	@Convert(converter = NIPConverter.class)
+	@Column(name = "created_by")
+	protected NIP createdBy;
 
 	@Column(name = "updated_at")
 	protected LocalDateTime updatedAt;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "updated_by", referencedColumnName = "id")
-	protected DataUserEntity updatedBy;
+	@Convert(converter = NIPConverter.class)
+	@Column(name = "updated_by")
+	protected NIP updatedBy;
 
 	@Column(name = "isDeleted")
 	protected boolean isDeleted;
@@ -33,11 +35,12 @@ public class AbstractReadableEntity<DataUserEntity> extends AbstractEntity imple
 	@Column(name = "deleted_at")
 	protected LocalDateTime deletedAt;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "deleted_by", referencedColumnName = "id")
-	protected DataUserEntity deletedBy;
+	@Convert(converter = NIPConverter.class)
+	@Column(name = "deleted_by")
+	protected NIP deletedBy;
 
-	protected AbstractReadableEntity(DataUserEntity createdBy) {
+	protected AbstractReadableEntity(NIP createdBy) {
+		super();
 		this.createdAt = LocalDateTime.now();
 		this.createdBy = createdBy;
 		this.updatedAt = null;
