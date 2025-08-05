@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @MappedSuperclass
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public abstract class AbstractDataMasterSubfungsi extends AbstractDataMasterClassificationEntity implements DataMasterSubfungsi {
+public abstract class AbstractDataMasterSubfungsiEntity extends AbstractDataMasterClassificationEntity implements DataMasterSubfungsi {
 
 	@Column(name = "fungsi_id")
 	protected String fungsiId;
@@ -22,7 +22,7 @@ public abstract class AbstractDataMasterSubfungsi extends AbstractDataMasterClas
 	@Column(name = "id")
 	protected String id;
 
-	protected AbstractDataMasterSubfungsi(String code) {
+	protected AbstractDataMasterSubfungsiEntity(String code) {
 		var classification = SubfungsiClassificationFactory.classify(code);
 		this.fungsiId = classification.getFungsiCode();
 		this.id = classification.getSubfungsiCode();

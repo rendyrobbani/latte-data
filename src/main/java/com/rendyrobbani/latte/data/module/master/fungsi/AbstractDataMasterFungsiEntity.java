@@ -13,13 +13,13 @@ import lombok.NoArgsConstructor;
 @Getter
 @MappedSuperclass
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public abstract class AbstractDataMasterFungsi extends AbstractDataMasterClassificationEntity implements DataMasterFungsi {
+public abstract class AbstractDataMasterFungsiEntity extends AbstractDataMasterClassificationEntity implements DataMasterFungsi {
 
 	@Id
 	@Column(name = "id")
 	protected String id;
 
-	protected AbstractDataMasterFungsi(String code) {
+	protected AbstractDataMasterFungsiEntity(String code) {
 		var classification = FungsiClassificationFactory.classify(code);
 		this.id = classification.getFungsiCode();
 	}

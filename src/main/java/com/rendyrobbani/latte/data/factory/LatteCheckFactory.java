@@ -1,5 +1,7 @@
 package com.rendyrobbani.latte.data.factory;
 
+import com.rendyrobbani.espresso.classification.fungsi.FungsiClassification;
+import com.rendyrobbani.espresso.classification.fungsi.SubfungsiClassification;
 import com.rendyrobbani.espresso.database.Check;
 import com.rendyrobbani.espresso.database.Column;
 import com.rendyrobbani.espresso.database.Table;
@@ -53,6 +55,14 @@ public final class LatteCheckFactory {
 
 	public static Check columnIsGender(Integer index, Table table, Column column) {
 		return columnIn(index, table, column, Arrays.stream(Gender.values()).map(Gender::getValue).toArray(Integer[]::new));
+	}
+
+	public static Check columnIsFungsiCode(Integer index, Table table, Column column) {
+		return columnRegex(index, table, column, FungsiClassification.FUNGSI_REGEX_GROUP);
+	}
+
+	public static Check columnIsSubfungsiCode(Integer index, Table table, Column column) {
+		return columnRegex(index, table, column, SubfungsiClassification.SUBFUNGSI_REGEX_GROUP);
 	}
 
 }
