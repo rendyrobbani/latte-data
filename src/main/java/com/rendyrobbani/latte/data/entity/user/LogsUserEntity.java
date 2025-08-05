@@ -20,6 +20,7 @@ public class LogsUserEntity extends AbstractLogsUserEntity {
 
 	public LogsUserEntity(DataUserEntity subject, NIP loggedBy) {
 		super(subject, loggedBy);
+		this.subject = subject;
 	}
 
 }
