@@ -40,7 +40,6 @@ public abstract class AbstractReadableEntity extends AbstractEntity implements R
 	protected NIP deletedBy;
 
 	protected AbstractReadableEntity(NIP createdBy) {
-		super();
 		this.createdAt = LocalDateTime.now();
 		this.createdBy = createdBy;
 		this.updatedAt = null;

@@ -5,9 +5,9 @@ import com.rendyrobbani.espresso.database.Table;
 import com.rendyrobbani.espresso.database.factory.ForeignKeyFactory;
 import com.rendyrobbani.latte.data.factory.LatteCheckFactory;
 import com.rendyrobbani.latte.data.factory.LatteTableFactory;
-import com.rendyrobbani.latte.data.schema.LockableTable;
-import com.rendyrobbani.latte.data.schema.LoggableTable;
-import com.rendyrobbani.latte.data.schema.ReadableTable;
+import com.rendyrobbani.latte.data.schema.common.LockableTable;
+import com.rendyrobbani.latte.data.schema.common.LoggableTable;
+import com.rendyrobbani.latte.data.schema.common.ReadableTable;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 

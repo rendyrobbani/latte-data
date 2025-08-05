@@ -69,30 +69,32 @@ public abstract class AbstractLogsUserEntity extends AbstractLoggableEntity<Abst
 
 	protected AbstractLogsUserEntity(AbstractDataUserEntity subject, NIP loggedBy) {
 		super(loggedBy);
-		this.pangkat = subject.getPangkat();
-		this.name = subject.getName();
-		this.titlePrefix = subject.getTitlePrefix();
-		this.titleSuffix = subject.getTitleSuffix();
-		this.password = subject.getPassword();
-		this.birthDate = subject.getBirthDate();
-		this.startDate = subject.getStartDate();
-		this.gender = subject.getGender();
-		this.number = subject.getNumber();
-		this.isPNS = subject.isPNS();
-		this.isP3K = subject.isP3K();
-		this.isLocked = subject.isLocked();
-		this.lockedAt = subject.getLockedAt();
-		this.lockedBy = subject.getLockedBy();
-		this.isLocked = subject.isLocked();
-		this.lockedAt = subject.getLockedAt();
-		this.lockedBy = subject.getLockedBy();
-		this.createdAt = subject.getCreatedAt();
-		this.createdBy = subject.getCreatedBy();
-		this.updatedAt = subject.getUpdatedAt();
-		this.updatedBy = subject.getUpdatedBy();
-		this.isDeleted = subject.isDeleted();
-		this.deletedAt = subject.getDeletedAt();
-		this.deletedBy = subject.getDeletedBy();
+		if (subject != null) {
+			this.pangkat = subject.getPangkat();
+			this.name = subject.getName();
+			this.titlePrefix = subject.getTitlePrefix();
+			this.titleSuffix = subject.getTitleSuffix();
+			this.password = subject.getPassword();
+			this.birthDate = subject.getBirthDate();
+			this.startDate = subject.getStartDate();
+			this.gender = subject.getGender();
+			this.number = subject.getNumber();
+			this.isPNS = subject.isPNS();
+			this.isP3K = subject.isP3K();
+			this.isLocked = subject.isLocked();
+			this.lockedAt = subject.getLockedAt();
+			this.lockedBy = subject.getLockedBy();
+			this.isLocked = subject.isLocked();
+			this.lockedAt = subject.getLockedAt();
+			this.lockedBy = subject.getLockedBy();
+			this.createdAt = subject.getCreatedAt();
+			this.createdBy = subject.getCreatedBy();
+			this.updatedAt = subject.getUpdatedAt();
+			this.updatedBy = subject.getUpdatedBy();
+			this.isDeleted = subject.isDeleted();
+			this.deletedAt = subject.getDeletedAt();
+			this.deletedBy = subject.getDeletedBy();
+		}
 	}
 
 }

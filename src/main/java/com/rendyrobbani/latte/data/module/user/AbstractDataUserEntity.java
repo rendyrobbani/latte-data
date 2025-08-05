@@ -75,28 +75,26 @@ public abstract class AbstractDataUserEntity extends AbstractLockableEntity impl
 	}
 
 	public void setPangkat(PangkatASN pangkat) {
-		if (pangkat == null) throw new IllegalArgumentException("Pangkat cannot be null");
 		this.pangkat = pangkat;
 		this.isPNS = pangkat.isPNS();
 		this.isP3K = pangkat.isP3K();
 	}
 
 	public void setStartDate(LocalDate startDate) {
-		if (this.pangkat == null) throw new IllegalStateException("Pangkat must be set before");
-		if (this.pangkat.isPNS()) throw new IllegalStateException("PNS cannot change start date");
+		if (this.pangkat.isPNS()) return;
 		this.startDate = startDate;
 	}
 
 	protected AbstractDataUserEntity(NIP nip, NIP createdBy) {
 		super(createdBy);
-
-		if (nip == null) throw new IllegalArgumentException("NIP cannot be null");
-		this.id = nip.getValue();
-		this.nip = nip;
-		this.birthDate = nip.getBirthDate();
-		this.startDate = nip.getStartDate();
-		this.gender = nip.getGender();
-		this.number = nip.getNumber();
+		if (nip != null) {
+			this.id = nip.getValue();
+			this.nip = nip;
+			this.birthDate = nip.getBirthDate();
+			this.startDate = nip.getStartDate();
+			this.gender = nip.getGender();
+			this.number = nip.getNumber();
+		}
 	}
 
 }

@@ -25,13 +25,6 @@ public abstract class AbstractLockableEntity extends AbstractWritableEntity impl
 	@Column(name = "locked_by")
 	protected NIP lockedBy;
 
-	protected AbstractLockableEntity(NIP createdBy) {
-		super(createdBy);
-		this.isLocked = false;
-		this.lockedAt = null;
-		this.lockedBy = null;
-	}
-
 	@Override
 	public void lock(NIP lockedBy) {
 		this.isLocked = true;
@@ -46,6 +39,13 @@ public abstract class AbstractLockableEntity extends AbstractWritableEntity impl
 		this.lockedBy = null;
 		this.updatedAt = LocalDateTime.now();
 		this.updatedBy = unlockedBy;
+	}
+
+	protected AbstractLockableEntity(NIP createdBy) {
+		super(createdBy);
+		this.isLocked = false;
+		this.lockedAt = null;
+		this.lockedBy = null;
 	}
 
 }

@@ -2,16 +2,15 @@ package com.rendyrobbani.latte.data.entity.user;
 
 import com.rendyrobbani.espresso.identify.NIP;
 import com.rendyrobbani.latte.data.module.user.AbstractLogsUserEntity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ManyToOne;
+import com.rendyrobbani.latte.data.schema.user.LogsUserTable;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @Entity
+@Table(name = LogsUserTable.TABLE_NAME)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class LogsUserEntity extends AbstractLogsUserEntity {
 

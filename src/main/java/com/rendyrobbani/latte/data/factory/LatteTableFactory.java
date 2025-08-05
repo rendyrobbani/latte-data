@@ -4,7 +4,7 @@ import com.rendyrobbani.espresso.database.Column;
 import com.rendyrobbani.espresso.database.Table;
 import com.rendyrobbani.espresso.database.factory.ColumnFactory;
 import com.rendyrobbani.espresso.database.factory.TableFactory;
-import com.rendyrobbani.latte.data.schema.LoggableTable;
+import com.rendyrobbani.latte.data.schema.common.LoggableTable;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 

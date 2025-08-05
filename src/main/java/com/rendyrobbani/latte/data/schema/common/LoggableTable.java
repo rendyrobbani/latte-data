@@ -1,4 +1,4 @@
-package com.rendyrobbani.latte.data.schema;
+package com.rendyrobbani.latte.data.schema.common;
 
 import com.rendyrobbani.espresso.database.Column;
 import com.rendyrobbani.espresso.database.Constraint;
